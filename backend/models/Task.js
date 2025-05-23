@@ -9,7 +9,7 @@ const todoSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-}, { timestamps: true });
+});
 
 const taskSchema = new mongoose.Schema({
     title: {
@@ -18,7 +18,6 @@ const taskSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-       
     },
     priority: {
         type: String,
@@ -32,17 +31,16 @@ const taskSchema = new mongoose.Schema({
     },
     dueDate: {
         type: Date,
-        default: null,
+        required: true,
     },
-    assignedTo: {
+    assignedTo: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-    },
+    }],
     attachments: [{
         type: String,
     }],
-    createdBy: {    
-        
+    createdBy: {     
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
