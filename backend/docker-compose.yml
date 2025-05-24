@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: questflow-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: questflow-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - MONGO_URI=mongodb://admin:admin@mongo:27017/questflow?authSource=admin
+      - ADMIN_INVITE_TOKEN=333
+      - JWT_SECRET=trixtersSecret
+      - NODE_ENV=development
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+    command: npm run dev
+
+volumes:
+  mongo-data:
