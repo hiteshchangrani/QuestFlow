@@ -131,7 +131,7 @@ Quest-Flow/
 
 * Sample `.env` files for both **backend** and **frontend** are provided in this Google Drive:
 
-📌 [Google Drive Link to `.env` Files & PDF Docs](https://drive.google.com/)
+📌 [Google Drive Link to `.env` Files & PDF Docs](https://drive.google.com/drive/folders/1DYpjcGlAVKmTImbvWpnOQFRPOYKexFY1?usp=drive_link)
 *(Replace the link with your actual Google Drive link if needed)*
 
 ---
